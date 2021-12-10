@@ -1,0 +1,46 @@
+<!-- app.component.html -->
+
+<div class="container">
+  <h1>Hello, {{ title }}!!</h1>
+  <form
+    [formGroup]="angForm"
+    #data="ngForm"
+    novalidate
+    (ngSubmit)="EncryptData(data)"
+  >
+    <div class="form-group">
+      <label>Secret Key:</label>
+      <input class="form-control" formControlName="secretKey" type="password" />
+    </div>
+    <div class="form-group">
+      <label>Encrypt Message:</label>
+      <textarea
+        class="form-control"
+        formControlName="message"
+        type="text"
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Encrypt</button>
+  </form>
+  <br /><br />
+  <form
+    [formGroup]="angForm"
+    #data="ngForm"
+    novalidate
+    (ngSubmit)="DecryptData(data)"
+  >
+    <div class="form-group">
+      <label>Decrypt Message:</label>
+      <textarea
+        class="form-control"
+        formControlName="messageEncrypted"
+        type="text"
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Decrypt</button>
+  </form>
+
+  <br />
+</div>
